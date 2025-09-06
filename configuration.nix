@@ -131,6 +131,9 @@
     zig
     go
     gcc
+    libGL
+    glm
+    
     btop
     lua
     uv
