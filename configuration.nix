@@ -105,6 +105,7 @@
   programs.firefox.enable = true;
   programs.steam.enable = true;
   programs.zsh.enable = true;
+  hardware.bluetooth.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
@@ -130,12 +131,15 @@
     odin
     gnumake
     ghostty
+    unzip
     kitty
     mesa
     discord
     blender
     godot
     helix
+    fastfetch
+    pkgs.qt6.full
     pkgs.lunar-client
     pkgs.cloudflare-warp
     pkgs.vmware-workstation
