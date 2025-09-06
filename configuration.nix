@@ -35,6 +35,18 @@
     };
   };
 
+  fileSystems."/mnt/480gb" = {
+    device = "/dev/sda1";
+    fsType = "ext4";
+    options = [ "defaults" "nofail" ];
+  };
+
+  fileSystems."/mnt/240gb" = {
+    device = "/dev/sdb1";
+    fsType = "ext4";
+    options = [ "defaults" "nofail" ];
+  };
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   services.cloudflare-warp.enable = true;
   networking.hostName = "nixos";
@@ -139,6 +151,8 @@
     godot
     helix
     fastfetch
+    ghc
+    pkgs.cabal-install
     pkgs.qt6.full
     pkgs.lunar-client
     pkgs.cloudflare-warp
