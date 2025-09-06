@@ -49,6 +49,7 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   services.cloudflare-warp.enable = true;
+  virtualisation.vmware.host.enable = true;
   networking.hostName = "nixos";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
