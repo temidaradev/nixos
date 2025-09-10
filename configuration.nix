@@ -35,18 +35,24 @@
     };
   };
 
-  fileSystems."/mnt/480gb" = {
+  fileSystems."/mnt/240gb" = {
     device = "/dev/sda1";
     fsType = "ext4";
     options = [ "defaults" "nofail" ];
   };
 
-  fileSystems."/mnt/240gb" = {
-    device = "/dev/sdb1";
+  fileSystems."/mnt/480gb" = {
+    device = "/dev/sdc1";
     fsType = "ext4";
     options = [ "defaults" "nofail" ];
   };
 
+  fileSystems."/mnt/s240gb" = {
+    device = "/dev/sdb";
+    fsType = "ext4";
+    options = [ "defaults" "nofail" ];
+  };
+  
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   services.cloudflare-warp.enable = true;
   virtualisation.vmware.host.enable = true;
