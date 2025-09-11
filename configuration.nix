@@ -35,20 +35,20 @@
     };
   };
 
-  fileSystems."/mnt/240gb" = {
+  fileSystems."/mnt/kioxia480gb" = {
     device = "/dev/sda1";
     fsType = "ext4";
     options = [ "defaults" "nofail" ];
   };
 
-  fileSystems."/mnt/480gb" = {
-    device = "/dev/sdc1";
+  fileSystems."/mnt/samsung240gb" = {
+    device = "/dev/sdc";
     fsType = "ext4";
     options = [ "defaults" "nofail" ];
   };
 
-  fileSystems."/mnt/s240gb" = {
-    device = "/dev/sdb";
+  fileSystems."/mnt/kioxia240gb" = {
+    device = "/dev/sdb1";
     fsType = "ext4";
     options = [ "defaults" "nofail" ];
   };
@@ -156,12 +156,14 @@
     unzip
     kitty
     mesa
+    rquickshare
     discord
     blender
     godot
     helix
     fastfetch
     ghc
+    pkg-config
     pkgs.cabal-install
     pkgs.qt6.full
     pkgs.lunar-client
