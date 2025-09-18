@@ -35,24 +35,6 @@
     };
   };
 
-  fileSystems."/mnt/kioxia480gb" = {
-    device = "/dev/sda1";
-    fsType = "ext4";
-    options = [ "defaults" "nofail" ];
-  };
-
-  fileSystems."/mnt/samsung240gb" = {
-    device = "/dev/sdc";
-    fsType = "ext4";
-    options = [ "defaults" "nofail" ];
-  };
-
-  fileSystems."/mnt/kioxia240gb" = {
-    device = "/dev/sdb1";
-    fsType = "ext4";
-    options = [ "defaults" "nofail" ];
-  };
-  
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   services.cloudflare-warp.enable = true;
   virtualisation.vmware.host.enable = true;
@@ -140,7 +122,6 @@
     gcc
     libGL
     glm
-    
     btop
     lua
     uv
@@ -178,13 +159,10 @@
     pkgs.vscode
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  programs.gnupg.agent = {
+     enable = true;
+     enableSSHSupport = true;
+  };
 
   services.openssh.enable = true;
 
