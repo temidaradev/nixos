@@ -34,6 +34,9 @@
       '';
     };
   };
+  services.udev.extraRules = ''
+    KERNEL=="ttyACM[0-9]*", MODE="0666"
+  '';
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   services.cloudflare-warp.enable = true;
@@ -135,6 +138,7 @@
     gnumake
     ghostty
     unzip
+    arduino-ide
     kitty
     mesa
     rquickshare
