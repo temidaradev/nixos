@@ -41,6 +41,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   services.cloudflare-warp.enable = true;
   virtualisation.vmware.host.enable = true;
+  virtualisation.docker.enable = true;
   networking.hostName = "nixos";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -94,7 +95,7 @@
   users.users.temidaradev = {
     isNormalUser = true;
     description = "temidaradev";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       kdePackages.kate
       thunderbird
@@ -141,7 +142,8 @@
     arduino-ide
     kitty
     mesa
-    rquickshare
+    ncurses
+    slack
     discord
     blender
     godot
