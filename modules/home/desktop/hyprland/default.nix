@@ -4,10 +4,12 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-      monitor = [ ",1920x1080@120,auto,1" ];
+      monitor = [ "HDMI-A-1,1920x1080@120,auto,1" ];
 
       input = {
         kb_layout = "tr";
+        repeat_delay = 250;
+        repeat_rate = 50;
       };
       
       bind = [
@@ -58,8 +60,6 @@
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
         force_default_wallpaper = 0;
-        key_repeat_delay = 250;
-        key_repeat_rate = 50;
       };
 
       decoration = {
