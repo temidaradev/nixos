@@ -190,6 +190,7 @@
     pantheon.elementary-icon-theme
     tango-icon-theme
     arc-icon-theme
+    bibata-cursors
     gtk3
     shared-mime-info
     
@@ -211,6 +212,8 @@
   home.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "gtk3";
     GTK_ICON_THEME = "Papirus";
+    XCURSOR_THEME = "Bibata-Modern-Classic";
+    XCURSOR_SIZE = "24";
   };
 
   gtk = {
@@ -222,6 +225,10 @@
     theme = {
       name = "Adwaita-dark";
       package = pkgs.gnome-themes-extra;
+    };
+    cursorTheme = {
+      name = "Bibata-Modern-Classic";
+      package = pkgs.bibata-cursors;
     };
   };
 }

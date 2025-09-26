@@ -11,6 +11,20 @@
         repeat_delay = 250;
         repeat_rate = 50;
       };
+
+      cursor = {
+        no_hardware_cursors = false;
+        enable_hyprcursor = true;
+        hide_on_key_press = false;
+        hide_on_touch = true;
+      };
+
+      env = [
+        "XCURSOR_SIZE,24"
+        "XCURSOR_THEME,Bibata-Modern-Classic"
+        "HYPRCURSOR_SIZE,24"
+        "HYPRCURSOR_THEME,Bibata-Modern-Classic"
+      ];
       
       bind = [
         "SUPER, RETURN, exec, kitty"
