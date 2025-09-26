@@ -4,7 +4,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-      monitor = [ ",preferred,auto,auto" ];
+      monitor = [ ",1920x1080@120,auto,1" ];
 
       input = {
         kb_layout = "tr";
@@ -41,6 +41,8 @@
 
       exec-once = [
         "caelestia-shell"
+        "pkill -f swayidle || true"
+        "pkill -f swaylock || true"
       ];
 
       general = {
@@ -50,6 +52,14 @@
         "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
         "col.inactive_border" = "rgba(595959aa)";
         layout = "dwindle";
+      };
+
+      misc = {
+        disable_hyprland_logo = true;
+        disable_splash_rendering = true;
+        force_default_wallpaper = 0;
+        key_repeat_delay = 250;
+        key_repeat_rate = 50;
       };
 
       decoration = {
@@ -62,6 +72,9 @@
       };
     };
     extraConfig = ''
+      # Disable idle timeout and screen lock
+      exec-once = [hyprctl dispatch dpms on]
+      
       # Additional Hyprland configuration can go here if needed
     '';
   };
