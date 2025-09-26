@@ -17,11 +17,29 @@
         "SUPER, Q, killactive"
         "SUPER, A, exec, rofi -show drun"
         "SUPER, R, exec, rofi -show run"
+        "SUPER, E, exec, dolphin"
+        "SUPER, F, fullscreen"
+        "SUPER, B, exec ,firefox"
+        
+        "ALT, SPACE, exec, caelestia shell drawers toggle launcher"
+        "SUPER, D, exec, caelestia shell drawers toggle dashboard"
+        "SUPER, S, exec, caelestia shell drawers toggle session"
+        "SUPER, U, exec, caelestia shell drawers toggle utilities"
+        "SUPER, N, exec, caelestia shell notifs clear"
+        "SUPER SHIFT, L, exec, caelestia shell lock lock"
+        
+        "SUPER, F7, exec, playerctl previous"
+        "SUPER, F8, exec, playerctl play-pause"
+        "SUPER, F9, exec, playerctl next"
+        "SUPER, F10, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
+        "SUPER, F11, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%"
+        "SUPER, F12, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
+        
         "SUPER, 1, workspace, 1"
         "SUPER, 2, workspace, 2"
         "SUPER, 3, workspace, 3"
         "SUPER, 4, workspace, 4"
-        "SUPER, 4, workspace, 5"
+        "SUPER, 5, workspace, 5"
         "SUPER SHIFT, 1, movetoworkspace, 1"
         "SUPER SHIFT, 2, movetoworkspace, 2"
         "SUPER SHIFT, 3, movetoworkspace, 3"
@@ -39,10 +57,18 @@
         ", XF86AudioPause, exec, playerctl play-pause"
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioPrev, exec, playerctl previous"
+        ", XF86AudioStop, exec, playerctl stop"
+        
+        ", XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
+        ", XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%"
+        ", XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
+        ", XF86AudioMicMute, exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+        
+        ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
+        ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
       ];
 
       exec-once = [
-        "caelestia-shell"
         "pkill -f swayidle || true"
         "pkill -f swaylock || true"
       ];
@@ -80,7 +106,6 @@
   };
 
   home.packages = with pkgs; [ 
-    caelestia-shell.packages.${pkgs.system}.default
     rofi
   ];
 

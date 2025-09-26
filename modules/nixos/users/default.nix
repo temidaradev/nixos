@@ -17,6 +17,7 @@
       kitty
       ghostty
       waybar
+      kdePackages.dolphin
       wofi
       wl-clipboard
       wine
