@@ -21,10 +21,10 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in {
     nixosConfigurations = {
-      nixos = lib.nixosSystem {
+      temidaradev = lib.nixosSystem {
         inherit system;
         modules = [ 
-          ./configuration.nix
+          ./hosts/temidaradev/machine.nix
           hyprland.nixosModules.default
         ];
       };
@@ -33,7 +33,7 @@
       temidaradev = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ 
-          ./home.nix
+          ./hosts/temidaradev/home.nix
           hyprland.homeManagerModules.default
         ];
         extraSpecialArgs = {

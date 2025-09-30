@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  networking.hostName = "nixos";
+  networking.hostName = "temidaradev";
   networking.networkmanager.enable = true;
 }
