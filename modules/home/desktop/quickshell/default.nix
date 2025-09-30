@@ -176,39 +176,6 @@
     fi
   '';
 
-  home.packages = with pkgs; [
-    wl-clipboard
-    grim
-    slurp
-    imagemagick
-    nixos-icons
-    
-    papirus-icon-theme
-    adwaita-icon-theme
-    gnome-icon-theme
-    hicolor-icon-theme
-    pantheon.elementary-icon-theme
-    tango-icon-theme
-    arc-icon-theme
-    bibata-cursors
-    gtk3
-    shared-mime-info
-    
-    qalculate-gtk
-    kdePackages.gwenview
-    mpv
-    pavucontrol
-    playerctl
-    brightnessctl
-
-    pulseaudio
-    pamixer
-    alsa-utils
-
-    libnotify
-    dunst
-  ];
-
   home.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "gtk3";
     GTK_ICON_THEME = "Papirus";

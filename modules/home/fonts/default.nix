@@ -1,11 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-    noto-fonts-cjk-sans
-    nerd-fonts.jetbrains-mono
-  ];
-
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
