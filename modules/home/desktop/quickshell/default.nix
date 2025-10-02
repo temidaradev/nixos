@@ -16,14 +16,12 @@
       ];
     };
     settings = {
-      # Paths configuration
       paths = {
         wallpaperDir = "~/Pictures/Wallpapers";
         mediaGif = "root:/assets/bongocat.gif";
         sessionGif = "root:/assets/kurukuru.gif";
       };
       
-      # General settings
       general = {
         apps = {
           terminal = ["kitty"];
@@ -34,11 +32,10 @@
           calculator = ["qalculate-gtk"];
           playback = ["mpv"];
         };
-        # Disable idle management completely
         idle = {
           lockBeforeSleep = false;
           inhibitWhenAudio = true;
-          timeouts = []; # Empty array means no idle timeouts
+          timeouts = [];
         };
         battery = {
           warnLevels = [
@@ -59,7 +56,6 @@
         };
       };
       
-      # OSD settings
       osd = {
         enabled = true;
         hideDelay = 2000;
@@ -67,7 +63,6 @@
         enableMicrophone = false;
       };
       
-      # Notification settings
       notifs = {
         expire = true;
         defaultExpireTimeout = 5000;
@@ -76,7 +71,6 @@
         clearThreshold = 0.3;
       };
       
-      # Dashboard settings
       dashboard = {
         enabled = true;
         showOnHover = false;
@@ -84,7 +78,6 @@
         dragThreshold = 50;
       };
       
-      # Utilities settings
       utilities = {
         enabled = true;
         maxToasts = 6;
@@ -100,7 +93,6 @@
         };
       };
       
-      # Launcher settings
       launcher = {
         enabled = true;
         enableDangerousActions = true;
@@ -171,7 +163,6 @@
         ];
       };
       
-      # Session settings - disable all lock/sleep functionality
       session = {
         enabled = true;
         vimKeybinds = false;
@@ -184,18 +175,15 @@
         };
       };
       
-      # Sidebar settings
       sidebar = {
         enabled = true;
         dragThreshold = 80;
       };
       
-      # Lock screen settings (but we won't use it)
       lock = {
         recolourLogo = false;
       };
       
-      # Background settings
       background = {
         enabled = true;
         desktopClock = {
@@ -209,13 +197,11 @@
         };
       };
       
-      # Border settings
       border = {
         rounding = 25;
         thickness = 10;
       };
       
-      # Services settings
       services = {
         audioIncrement = 0.1;
         defaultPlayer = "Spotify";
@@ -233,7 +219,6 @@
         visualiserBars = 45;
       };
       
-      # Appearance settings
       appearance = {
         anim = {
           durations = {
@@ -266,7 +251,6 @@
         };
       };
       
-      # Bar configuration
       bar = {
         persistent = true;
         showOnHover = true;
@@ -319,7 +303,7 @@
           showAudio = true;
           showMicrophone = true;
           showKbLayout = false;
-          showLockStatus = false; # Disable lock status since we're not using locking
+          showLockStatus = false;
         };
         scrollActions = {
           workspaces = true;
@@ -353,7 +337,6 @@
     };
   };
 
-  # Create necessary directories
   home.activation.createCaelestiaDirectories = config.lib.dag.entryAfter ["writeBoundary"] ''
     mkdir -p /home/temidaradev/Pictures/Wallpapers
     mkdir -p /home/temidaradev/.config/caelestia
@@ -364,7 +347,6 @@
     fi
   '';
 
-  # Environment variables
   home.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "gtk3";
     GTK_ICON_THEME = "Papirus";
@@ -372,7 +354,6 @@
     XCURSOR_SIZE = "24";
   };
 
-  # GTK theme configuration
   gtk = {
     enable = true;
     iconTheme = {
