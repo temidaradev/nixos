@@ -24,6 +24,8 @@
         HandleHibernateKey = "ignore";
         IdleAction = "ignore";
         IdleActionSec = 0;
+        KillUserProcesses = false;
+        UserStopDelaySec = 0;
       };
     };
   };

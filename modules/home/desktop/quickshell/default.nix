@@ -68,8 +68,12 @@
       };
       
       session = {
-        enabled = true;
+        enabled = false;
         vimKeybinds = false;
+      };
+
+      idleInhibitor = {
+        enabled = true;
       };
       
       bar = {
@@ -169,6 +173,22 @@
       touch /home/temidaradev/.face
     fi
   '';
+
+  systemd.user.services.caelestia-idle-inhibitor = {
+    Unit = {
+      Description = "Enable Caelestia idle inhibitor to prevent auto-lock";
+      After = [ "caelestia.service" ];
+      Wants = [ "caelestia.service" ];
+    };
+    Service = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.bash}/bin/bash -c 'sleep 3 && caelestia shell idleInhibitor enable'";
+      RemainAfterExit = true;
+    };
+    Install = {
+      WantedBy = [ "hyprland-session.target" ];
+    };
+  };
 
   home.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "gtk3";

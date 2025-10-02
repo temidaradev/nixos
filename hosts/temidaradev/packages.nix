@@ -91,7 +91,6 @@ with pkgs; {
 
     # Hyprland
     rofi
-    hypridle
 
     # Fonts
     noto-fonts-cjk-sans
