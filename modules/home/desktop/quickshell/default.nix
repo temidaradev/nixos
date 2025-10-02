@@ -68,8 +68,9 @@
       };
       
       session = {
-        enabled = false;
         vimKeybinds = false;
+        timeout = 0;
+        lockTimeout = 0;
       };
 
       idleInhibitor = {
