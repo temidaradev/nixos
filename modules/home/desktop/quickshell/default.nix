@@ -20,7 +20,6 @@
       
       osLogo = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
       
-      # Enable OSD (On-Screen Display) for volume/brightness
       osd = {
         enabled = true;
         hideDelay = 2000;
@@ -28,7 +27,6 @@
         enableMicrophone = false;
       };
       
-      # Enable notifications
       notifs = {
         expire = true;
         defaultExpireTimeout = 5000;
@@ -36,14 +34,12 @@
         groupPreviewNum = 3;
       };
       
-      # Enable dashboard with system info
       dashboard = {
         enabled = true;
         showOnHover = false;
         mediaUpdateInterval = 500;
       };
       
-      # Enable utilities and toasts
       utilities = {
         enabled = true;
         maxToasts = 6;
@@ -59,10 +55,9 @@
         };
       };
       
-      # Enhanced launcher with more features
       launcher = {
         enabled = true;
-        enableDangerousActions = true;  # Allow shutdown/reboot/logout
+        enableDangerousActions = true;
         maxShown = 8;
         useFuzzy = {
           apps = true;
@@ -72,7 +67,6 @@
         };
       };
       
-      # Session menu configuration
       session = {
         enabled = true;
         vimKeybinds = false;
