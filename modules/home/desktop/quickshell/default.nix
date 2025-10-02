@@ -16,10 +16,50 @@
       ];
     };
     settings = {
-      paths.wallpaperDir = "~/Pictures/Wallpapers";
+      # Paths configuration
+      paths = {
+        wallpaperDir = "~/Pictures/Wallpapers";
+        mediaGif = "root:/assets/bongocat.gif";
+        sessionGif = "root:/assets/kurukuru.gif";
+      };
       
-      osLogo = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+      # General settings
+      general = {
+        apps = {
+          terminal = ["kitty"];
+          audio = ["pavucontrol"];
+          explorer = ["dolphin"];
+          browser = ["firefox"];
+          editor = ["neovim"];
+          calculator = ["qalculate-gtk"];
+          playback = ["mpv"];
+        };
+        # Disable idle management completely
+        idle = {
+          lockBeforeSleep = false;
+          inhibitWhenAudio = true;
+          timeouts = []; # Empty array means no idle timeouts
+        };
+        battery = {
+          warnLevels = [
+            {
+              level = 20;
+              title = "Low battery";
+              message = "You might want to plug in a charger";
+              icon = "battery_android_frame_2";
+            }
+            {
+              level = 10;
+              title = "Critical battery level";
+              message = "Please plug in a charger now";
+              icon = "battery_android_frame_1";
+            }
+          ];
+          criticalLevel = 5;
+        };
+      };
       
+      # OSD settings
       osd = {
         enabled = true;
         hideDelay = 2000;
@@ -27,19 +67,24 @@
         enableMicrophone = false;
       };
       
+      # Notification settings
       notifs = {
         expire = true;
         defaultExpireTimeout = 5000;
         actionOnClick = true;
-        groupPreviewNum = 3;
+        expandThreshold = 20;
+        clearThreshold = 0.3;
       };
       
+      # Dashboard settings
       dashboard = {
         enabled = true;
         showOnHover = false;
         mediaUpdateInterval = 500;
+        dragThreshold = 50;
       };
       
+      # Utilities settings
       utilities = {
         enabled = true;
         maxToasts = 6;
@@ -55,34 +100,184 @@
         };
       };
       
+      # Launcher settings
       launcher = {
         enabled = true;
         enableDangerousActions = true;
         maxShown = 8;
+        maxWallpapers = 9;
+        dragThreshold = 50;
+        vimKeybinds = false;
+        actionPrefix = ">";
+        specialPrefix = "@";
+        showOnHover = false;
         useFuzzy = {
           apps = true;
           actions = true;
           schemes = true;
           wallpapers = true;
+          variants = true;
+        };
+        hiddenApps = [];
+        actions = [
+          {
+            name = "Calculator";
+            icon = "calculate";
+            description = "Do simple math equations (powered by Qalc)";
+            command = ["autocomplete" "calc"];
+            enabled = true;
+            dangerous = false;
+          }
+          {
+            name = "Scheme";
+            icon = "palette";
+            description = "Change the current colour scheme";
+            command = ["autocomplete" "scheme"];
+            enabled = true;
+            dangerous = false;
+          }
+          {
+            name = "Wallpaper";
+            icon = "image";
+            description = "Change the current wallpaper";
+            command = ["autocomplete" "wallpaper"];
+            enabled = true;
+            dangerous = false;
+          }
+          {
+            name = "Random";
+            icon = "casino";
+            description = "Switch to a random wallpaper";
+            command = ["caelestia" "wallpaper" "-r"];
+            enabled = true;
+            dangerous = false;
+          }
+          {
+            name = "Light";
+            icon = "light_mode";
+            description = "Change the scheme to light mode";
+            command = ["setMode" "light"];
+            enabled = true;
+            dangerous = false;
+          }
+          {
+            name = "Dark";
+            icon = "dark_mode";
+            description = "Change the scheme to dark mode";
+            command = ["setMode" "dark"];
+            enabled = true;
+            dangerous = false;
+          }
+        ];
+      };
+      
+      # Session settings - disable all lock/sleep functionality
+      session = {
+        enabled = true;
+        vimKeybinds = false;
+        dragThreshold = 30;
+        commands = {
+          logout = ["loginctl" "terminate-user" ""];
+          shutdown = ["systemctl" "poweroff"];
+          hibernate = ["systemctl" "hibernate"];
+          reboot = ["systemctl" "reboot"];
         };
       };
       
-      session = {
-        vimKeybinds = false;
-        timeout = 0;
-        lockTimeout = 0;
-      };
-
-      idleInhibitor = {
+      # Sidebar settings
+      sidebar = {
         enabled = true;
+        dragThreshold = 80;
       };
       
+      # Lock screen settings (but we won't use it)
+      lock = {
+        recolourLogo = false;
+      };
+      
+      # Background settings
+      background = {
+        enabled = true;
+        desktopClock = {
+          enabled = false;
+        };
+        visualiser = {
+          enabled = false;
+          autoHide = true;
+          rounding = 1;
+          spacing = 1;
+        };
+      };
+      
+      # Border settings
+      border = {
+        rounding = 25;
+        thickness = 10;
+      };
+      
+      # Services settings
+      services = {
+        audioIncrement = 0.1;
+        defaultPlayer = "Spotify";
+        gpuType = "";
+        playerAliases = [
+          {
+            from = "com.github.th_ch.youtube_music";
+            to = "YT Music";
+          }
+        ];
+        weatherLocation = "";
+        useFahrenheit = false;
+        useTwelveHourClock = false;
+        smartScheme = true;
+        visualiserBars = 45;
+      };
+      
+      # Appearance settings
+      appearance = {
+        anim = {
+          durations = {
+            scale = 1;
+          };
+        };
+        font = {
+          family = {
+            material = "Material Symbols Rounded";
+            mono = "CaskaydiaCove NF";
+            sans = "Rubik";
+          };
+          size = {
+            scale = 1;
+          };
+        };
+        padding = {
+          scale = 1;
+        };
+        rounding = {
+          scale = 1;
+        };
+        spacing = {
+          scale = 1;
+        };
+        transparency = {
+          enabled = false;
+          base = 0.85;
+          layers = 0.4;
+        };
+      };
+      
+      # Bar configuration
       bar = {
+        persistent = true;
+        showOnHover = true;
+        dragThreshold = 20;
+        clock = {
+          showIcon = true;
+        };
         entries = [
           {
             id = "logo";
             enabled = true;
-            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
           }
           {
             id = "workspaces";
@@ -124,33 +319,30 @@
           showAudio = true;
           showMicrophone = true;
           showKbLayout = false;
-          showLockStatus = true;
+          showLockStatus = false; # Disable lock status since we're not using locking
         };
-
         scrollActions = {
           workspaces = true;
           volume = true;
           brightness = true;
         };
-
         workspaces = {
           shown = 5;
           activeIndicator = true;
           occupiedBg = true;
           showWindows = true;
           activeTrail = true;
+          activeLabel = "󰮯";
+          label = "⏺";
+          occupiedLabel = "󰮯";
+          perMonitorWorkspaces = true;
         };
-      };
-      general.apps = {
-        terminal = ["kitty"];
-        audio = ["pavucontrol"];
-        explorer = ["dolphin"];
-        browser = ["firefox"];
-        editor = ["neovim"];
-        calculator = ["qalculate-gtk"];
-        imageViewer = ["gwenview"];
-        videoPlayer = ["mpv"];
-        musicPlayer = ["spotify"];
+        tray = {
+          background = false;
+          compact = false;
+          iconSubs = [];
+          recolour = false;
+        };
       };
     };
     cli = {
@@ -161,13 +353,10 @@
     };
   };
 
+  # Create necessary directories
   home.activation.createCaelestiaDirectories = config.lib.dag.entryAfter ["writeBoundary"] ''
     mkdir -p /home/temidaradev/Pictures/Wallpapers
     mkdir -p /home/temidaradev/.config/caelestia
-    mkdir -p /home/temidaradev/.local/share/icons/hicolor/scalable/apps
-    
-    ln -sf ${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg \
-           /home/temidaradev/.local/share/icons/hicolor/scalable/apps/nix-snowflake.svg
     
     if [ ! -f /home/temidaradev/.face ]; then
       echo "Creating default profile picture..."
@@ -175,22 +364,7 @@
     fi
   '';
 
-  systemd.user.services.caelestia-idle-inhibitor = {
-    Unit = {
-      Description = "Enable Caelestia idle inhibitor to prevent auto-lock";
-      After = [ "caelestia.service" ];
-      Wants = [ "caelestia.service" ];
-    };
-    Service = {
-      Type = "oneshot";
-      ExecStart = "${pkgs.bash}/bin/bash -c 'sleep 3 && caelestia shell idleInhibitor enable'";
-      RemainAfterExit = true;
-    };
-    Install = {
-      WantedBy = [ "hyprland-session.target" ];
-    };
-  };
-
+  # Environment variables
   home.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "gtk3";
     GTK_ICON_THEME = "Papirus";
@@ -198,6 +372,7 @@
     XCURSOR_SIZE = "24";
   };
 
+  # GTK theme configuration
   gtk = {
     enable = true;
     iconTheme = {
