@@ -36,6 +36,7 @@ with pkgs; {
     libqalculate
     material-symbols
     nerd-fonts.caskaydia-cove
+    kitty
 
     # Editors
     vim

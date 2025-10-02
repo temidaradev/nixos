@@ -4,7 +4,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-      monitor = [ "HDMI-A-1,1920x1080@120,auto,1" ];
+      monitor = [ "HDMI-A-1,1920x1080@120,auto,1,0" ];
 
       input = {
         kb_layout = "tr";

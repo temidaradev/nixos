@@ -7,8 +7,8 @@
   };
 
   systemd.targets = {
-    sleep.enable = true;
-    suspend.enable = true;
+    sleep.enable = false;
+    suspend.enable = false;
     hibernate.enable = false;
     hybrid-sleep.enable = false;
   };
@@ -23,6 +23,7 @@
         HandleSuspendKey = "suspend";
         HandleHibernateKey = "ignore";
         IdleAction = "ignore";
+        IdleActionSec = 0;
       };
     };
   };
