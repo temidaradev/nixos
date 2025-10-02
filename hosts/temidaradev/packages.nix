@@ -37,6 +37,8 @@ with pkgs; {
     material-symbols
     nerd-fonts.caskaydia-cove
     kitty
+    discord
+    slack
 
     # Editors
     vim
@@ -89,6 +91,7 @@ with pkgs; {
 
     # Hyprland
     rofi
+    hypridle
 
     # Fonts
     noto-fonts-cjk-sans
@@ -97,8 +100,6 @@ with pkgs; {
     # Applications
     thunderbird
     firefox
-    slack
-    discord
     telegram-desktop
     youtube-music
     blender

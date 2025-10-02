@@ -4,7 +4,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-      monitor = [ "HDMI-A-1,1920x1080@120,auto,1,0" ];
+      monitor = [ "HDMI-A-1,1920x1080@120,auto,1" ];
 
       input = {
         kb_layout = "tr";
@@ -83,8 +83,7 @@
       ];
 
       exec-once = [
-        "pkill -f swayidle || true"
-        "pkill -f swaylock || true"
+        "hyprctl dispatch dpms on"
       ];
 
       general = {
@@ -112,11 +111,26 @@
       };
     };
     extraConfig = ''
-      # Disable idle timeout and screen lock
-      exec-once = [hyprctl dispatch dpms on]
-      
-      # Additional Hyprland configuration can go here if needed
+      exec-once = hyprctl dispatch dpms on
     '';
+  };
+
+  services.hypridle = {
+    enable = true;
+    settings = {
+      general = {
+        before_sleep_cmd = "loginctl lock-session";
+        after_sleep_cmd = "hyprctl dispatch dpms on";
+      };
+
+      listener = [
+        {
+          timeout = 7200;
+          on-timeout = "hyprctl dispatch dpms off";
+          on-resume = "hyprctl dispatch dpms on";
+        }
+      ];
+    };
   };
 
   programs.rofi = {
