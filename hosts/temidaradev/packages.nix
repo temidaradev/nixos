@@ -7,6 +7,7 @@ with pkgs; {
 
     # Networking
     cloudflare-warp
+    protonvpn-gui
 
     # Hardware
     qt6.full
@@ -99,6 +100,7 @@ with pkgs; {
     # Applications
     thunderbird
     firefox
+    librewolf
     telegram-desktop
     youtube-music
     blender
