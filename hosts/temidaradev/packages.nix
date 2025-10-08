@@ -31,6 +31,7 @@ with pkgs; {
     networkmanager
     lm_sensors
     fish
+    android-studio
     aubio
     pipewire
     swappy
