@@ -49,6 +49,8 @@
         "SUPER, F11, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%"
         "SUPER, F12, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
         
+        ", Print, exec, grim -g \"$(slurp)\" ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png"
+        
         "SUPER, 1, workspace, 1"
         "SUPER, 2, workspace, 2"
         "SUPER, 3, workspace, 3"
