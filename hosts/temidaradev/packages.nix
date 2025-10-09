@@ -59,6 +59,8 @@ with pkgs; {
     ghc
     cabal-install
     go
+    cargo
+    rustup
     zig
     lua
   ];
