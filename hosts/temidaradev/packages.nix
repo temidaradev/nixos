@@ -42,6 +42,7 @@ with pkgs; {
     kitty
     discord
     slack
+    dioxus-cli
 
     # Editors
     vim
@@ -56,6 +57,8 @@ with pkgs; {
     # Languages
     python312
     uv
+    pkg-config
+    openssl.dev
     odin
     ghc
     cabal-install
@@ -66,6 +69,7 @@ with pkgs; {
     libGL
     wget
     glm
+    glib
     zlib
     rustup
     zig
