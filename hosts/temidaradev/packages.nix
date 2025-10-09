@@ -11,6 +11,7 @@ with pkgs; {
 
     # Hardware
     qt6.full
+    mesa
 
     # Virtualization
     vmware-workstation
@@ -60,6 +61,12 @@ with pkgs; {
     cabal-install
     go
     cargo
+    rustc
+    gcc
+    libGL
+    wget
+    glm
+    zlib
     rustup
     zig
     lua
