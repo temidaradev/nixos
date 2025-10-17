@@ -10,7 +10,6 @@
 
     extraPackages = with pkgs; [
       mesa
-      amdvlk
 
       libGL
       libglvnd
@@ -23,7 +22,6 @@
 
     extraPackages32 = with pkgs.driversi686Linux; [
       mesa
-      amdvlk
       libva-vdpau-driver
       libvdpau-va-gl
     ];
