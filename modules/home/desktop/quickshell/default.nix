@@ -13,11 +13,14 @@
       environment = [
         "QT_QPA_PLATFORM=wayland"
         "QT_QPA_PLATFORMTHEME=gtk3"
+        "PATH=/run/wrappers/bin:${config.home.profileDirectory}/bin:/run/current-system/sw/bin"
       ];
     };
     settings = {
       paths = {
         wallpaperDir = "~/Pictures/Wallpapers";
+        screenshotDir = "~/Pictures";
+        recordDir = "~/Videos";
         mediaGif = "root:/assets/bongocat.gif";
         sessionGif = "root:/assets/kurukuru.gif";
       };
@@ -339,6 +342,8 @@
 
   home.activation.createCaelestiaDirectories = config.lib.dag.entryAfter ["writeBoundary"] ''
     mkdir -p /home/temidaradev/Pictures/Wallpapers
+    mkdir -p /home/temidaradev/Pictures
+    mkdir -p /home/temidaradev/Videos
     mkdir -p /home/temidaradev/.config/caelestia
     
     if [ ! -f /home/temidaradev/.face ]; then

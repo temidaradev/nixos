@@ -78,10 +78,13 @@ with pkgs; {
 
   home = [
     # Desktop tools
+    anime-downloader
     wl-clipboard
     grim
     slurp
+    wf-recorder
     imagemagick
+    gpu-screen-recorder
     nixos-icons
     papirus-icon-theme
     adwaita-icon-theme
