@@ -22,6 +22,7 @@ with pkgs; {
 
     # Development tools
     git
+    alsa-lib
     gnumake
     unzip
     btop
@@ -36,6 +37,8 @@ with pkgs; {
     aubio
     pipewire
     swappy
+    cargo-tauri
+    trunk
     libqalculate
     material-symbols
     nerd-fonts.caskaydia-cove
@@ -50,6 +53,7 @@ with pkgs; {
     helix
     vscode
     zed-editor
+    code-cursor
     jetbrains.rust-rover
     jetbrains.goland
     jetbrains.clion
