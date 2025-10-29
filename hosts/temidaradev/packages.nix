@@ -35,7 +35,9 @@ with pkgs; {
     fish
     android-studio
     aubio
+    docker-compose
     pipewire
+    postgresql
     swappy
     cargo-tauri
     trunk

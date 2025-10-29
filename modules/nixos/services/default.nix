@@ -6,5 +6,6 @@
     ./printing
     ./ssh
     ./security
+    ./psql
   ];
 }
