@@ -13,6 +13,13 @@ with pkgs; {
     # Hardware
     qt6Packages.qtbase
     mesa
+    
+    # MTP support for Android devices
+    libmtp
+    mtpfs
+    jmtpfs
+    doublecmd
+    rar
 
     # Virtualization
     vmware-workstation
