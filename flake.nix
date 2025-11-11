@@ -29,6 +29,12 @@
           hyprland.nixosModules.default
         ];
       };
+      temidaradev-plasma = lib.nixosSystem {
+        inherit system;
+        modules = [ 
+          ./hosts/temidaradev-plasma/machine.nix
+        ];
+      };
     };
     homeConfigurations = {
       temidaradev = home-manager.lib.homeManagerConfiguration {
@@ -39,6 +45,15 @@
         ];
         extraSpecialArgs = {
           inherit hyprland caelestia-shell zen-browser;
+        };
+      };
+      temidaradev-plasma = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ 
+          ./hosts/temidaradev-plasma/home.nix
+        ];
+        extraSpecialArgs = {
+          inherit zen-browser;
         };
       };
     };

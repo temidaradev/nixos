@@ -36,6 +36,11 @@ This repository contains a NixOS configuration flake. It provides a complete des
 
 ## Features
 
+### Desktop Environments
+
+- **Hyprland**: Wayland compositor with custom configuration
+- **Plasma KDE**: Full-featured KDE Plasma 6 desktop with SDDM
+
 ### Hardware
 
 - **Graphics**: AMD GPU support with Mesa drivers
@@ -91,6 +96,42 @@ Modify modules in `modules/`:
 Add packages to `hosts/yourhostname/packages.nix` under `system` or `home` lists.
 
 ## Usage
+
+### Switching Desktop Environments
+
+This configuration supports both Hyprland and Plasma KDE desktop environments.
+
+#### Using the Switch Script
+
+```bash
+./switch-desktop.sh hyprland
+./switch-desktop.sh plasma
+```
+
+#### Manual Switching
+
+```bash
+# Switch to Hyprland
+sudo nixos-rebuild switch --flake ~/.dotfiles#temidaradev
+home-manager switch --flake ~/.dotfiles#temidaradev
+
+# Switch to Plasma KDE
+sudo nixos-rebuild switch --flake ~/.dotfiles#temidaradev-plasma
+home-manager switch --flake ~/.dotfiles#temidaradev-plasma
+```
+
+After switching, log out and back in to use the new desktop environment.
+
+#### Shell Aliases
+
+Add these to your `~/.zshrc` for quick switching:
+
+```bash
+alias switch-hyprland='~/.dotfiles/switch-desktop.sh hyprland'
+alias switch-plasma='~/.dotfiles/switch-desktop.sh plasma'
+alias rebuild-hyprland='sudo nixos-rebuild switch --flake ~/.dotfiles#temidaradev && home-manager switch --flake ~/.dotfiles#temidaradev'
+alias rebuild-plasma='sudo nixos-rebuild switch --flake ~/.dotfiles#temidaradev-plasma && home-manager switch --flake ~/.dotfiles#temidaradev-plasma'
+```
 
 ### Updating the System
 

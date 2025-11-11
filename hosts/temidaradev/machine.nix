@@ -1,10 +1,14 @@
 { config, pkgs, ... }:
 
+let
+  globalPackages = import ../packages.nix { inherit pkgs; };
+  hostPackages = import ./packages.nix { inherit pkgs; };
+in
 {
   imports = [
     ./hardware/hardware.nix
     ../../modules/nixos
   ];
 
-  environment.systemPackages = (import ./packages.nix { inherit pkgs; }).system;
+  environment.systemPackages = globalPackages.system ++ hostPackages.system;
 }
