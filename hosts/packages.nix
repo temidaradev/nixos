@@ -27,6 +27,11 @@ with pkgs; {
 
     # Desktop
     bibata-cursors
+    flatpak
+    xdg-desktop-portal
+    kdePackages.xdg-desktop-portal-kde
+    fwupd
+    whatsapp-electron
 
     # Development tools
     git

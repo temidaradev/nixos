@@ -7,5 +7,7 @@
     ./ssh
     ./security
     ./psql
+    ./flatpak
+    ./fwupd
   ];
 }
