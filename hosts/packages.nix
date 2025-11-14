@@ -40,13 +40,14 @@ with pkgs; {
     kdePackages.xdg-desktop-portal-kde
     fwupd
     whatsapp-electron
+    ffmpeg
 
     # Development tools
     git
     alsa-lib
     gnumake
     unzip
-    btop
+    (btop.override { cudaSupport = false; rocmSupport = true; })
     fastfetch
     arduino-ide
     ddcutil
