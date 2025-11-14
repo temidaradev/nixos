@@ -9,6 +9,7 @@ with pkgs; {
     # Networking
     cloudflare-warp
     protonvpn-gui
+    nicotine-plus
 
     # Hardware
     kdePackages.qtmultimedia
