@@ -5,6 +5,12 @@
     enable = true;
     cpuFreqGovernor = "performance";
   };
+  
+  # AMD CPU performance optimizations
+  boot.kernelParams = [ 
+    "processor.max_cstate=1"
+    "amd_pstate=active"
+  ];
 
   systemd.targets = {
     sleep.enable = false;
@@ -29,4 +35,12 @@
       };
     };
   };
+  
+  # CPU governor for better performance
+  services.power-profiles-daemon.enable = false;
+  
+  # Disable USB autosuspend to prevent lag
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="on"
+  '';
 }

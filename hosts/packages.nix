@@ -11,9 +11,16 @@ with pkgs; {
     protonvpn-gui
 
     # Hardware
+    kdePackages.qtmultimedia
     qt6Packages.qtbase
+    qt6Packages.qttools
+    qt6Packages.qtsvg
+    qt6Packages.qtdeclarative
+    qt6Packages.qtwayland
+    qt6Packages.qtwebsockets
     mesa
-    
+    cava
+
     # MTP support for Android devices
     libmtp
     mtpfs
@@ -75,7 +82,7 @@ with pkgs; {
     jetbrains.clion
 
     # Languages
-    python312
+    (python312.withPackages (ps: with ps; [ websockets ]))
     uv
     pkg-config
     openssl.dev
