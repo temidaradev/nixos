@@ -73,4 +73,3 @@
     "L+ /usr/lib/libdrm_amdgpu.so.1 - - - - ${pkgs.libdrm}/lib/libdrm_amdgpu.so.1"
   ];
 }
-

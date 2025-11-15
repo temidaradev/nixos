@@ -13,16 +13,16 @@
     grub = {
       enable = true;
       efiSupport = true;
-      efiInstallAsRemovable = true; # Otherwise /boot/EFI/BOOT/BOOTX64.EFI isn't generated
+      efiInstallAsRemovable = true;
       devices = ["nodev"];
       useOSProber = true;
       extraEntriesBeforeNixOS = false;
       extraEntries = ''
-        menuentry "Omarchy (UEFI - Limine)" {
+        menuentry "Arch Linux" {
           insmod part_gpt
           insmod fat
-          search --no-floppy --fs-uuid --set=root 41E9-1D72
-          chainloader /EFI/limine/BOOTX64.EFI
+          search --no-floppy --fs-uuid --set=root BCF1-6F58
+          chainloader /EFI/BOOT/BOOTX64.EFI
         }
         menuentry "Reboot" {
           reboot
