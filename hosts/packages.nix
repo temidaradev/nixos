@@ -7,7 +7,6 @@ with pkgs; {
     osu-lazer
 
     # Networking
-    cloudflare-warp
     protonvpn-gui
     nicotine-plus
 
@@ -41,6 +40,7 @@ with pkgs; {
     fwupd
     whatsapp-electron
     ffmpeg
+    discordo
 
     # Development tools
     git
