@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, harmonoid ? null }:
 
 with pkgs; {
   system = [
@@ -47,6 +47,7 @@ with pkgs; {
     alsa-lib
     gnumake
     unzip
+    luajit
     (btop.override { cudaSupport = false; rocmSupport = true; })
     fastfetch
     arduino-ide
