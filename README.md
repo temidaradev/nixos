@@ -101,13 +101,6 @@ Add packages to `hosts/yourhostname/packages.nix` under `system` or `home` lists
 
 This configuration supports both Hyprland and Plasma KDE desktop environments.
 
-#### Using the Switch Script
-
-```bash
-./switch-desktop.sh hyprland
-./switch-desktop.sh plasma
-```
-
 #### Manual Switching
 
 ```bash
@@ -121,17 +114,6 @@ home-manager switch --flake ~/.dotfiles#temidaradev-plasma
 ```
 
 After switching, log out and back in to use the new desktop environment.
-
-#### Shell Aliases
-
-Add these to your `~/.zshrc` for quick switching:
-
-```bash
-alias switch-hyprland='~/.dotfiles/switch-desktop.sh hyprland'
-alias switch-plasma='~/.dotfiles/switch-desktop.sh plasma'
-alias rebuild-hyprland='sudo nixos-rebuild switch --flake ~/.dotfiles#temidaradev && home-manager switch --flake ~/.dotfiles#temidaradev'
-alias rebuild-plasma='sudo nixos-rebuild switch --flake ~/.dotfiles#temidaradev-plasma && home-manager switch --flake ~/.dotfiles#temidaradev-plasma'
-```
 
 ### Updating the System
 
