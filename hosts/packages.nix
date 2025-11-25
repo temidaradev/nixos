@@ -41,6 +41,7 @@ with pkgs; {
     whatsapp-electron
     ffmpeg
     discordo
+    youtube-tui
 
     # Development tools
     git
@@ -86,6 +87,7 @@ with pkgs; {
 
     # Languages
     (python312.withPackages (ps: with ps; [ websockets ]))
+    python312Packages.pip
     uv
     pkg-config
     openssl.dev
