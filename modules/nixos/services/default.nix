@@ -6,6 +6,7 @@
     ./printing
     ./ssh
     ./security
+    ./mullvad
     ./psql
     ./flatpak
     ./fwupd
