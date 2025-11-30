@@ -19,19 +19,17 @@
       extraEntriesBeforeNixOS = false;
 
       extraEntries = ''
-        menuentry "BazziteOS (Samsung EVO)" {
+        menuentry "Bazzite" {
           insmod part_gpt
           insmod fat
-          # Use the EFI system partition on the Samsung EVO (from blkid):
-          # UUID="4CFA-C5B1" (device: /dev/sdb1). Replace with a
-          # different UUID if yours differs.
-          search --no-floppy --fs-uuid --set=root 4CFA-C5B1 || true
-
-          # Try common EFI loader locations (adjust if Bazzite uses a
-          # different path).
-          # `$root` must be escaped so Nix doesn't try to interpolate it.
-          chainloader (\$root)/EFI/BOOT/bootx64.efi
-          boot
+          search --no-floppy --fs-uuid --set=root 4CFA-C5B1
+          chainloader /EFI/fedora/shimx64.efi
+        }
+        menuentry "Reboot" {
+          reboot
+        }
+        menuentry "Poweroff" {
+          halt
         }
       '';
     };
