@@ -20,6 +20,7 @@ with pkgs; {
     qt6Packages.qtwebsockets
     mesa
     cava
+    direnv
 
     # MTP support for Android devices
     libmtp
@@ -45,6 +46,13 @@ with pkgs; {
 
     # Development tools
     git
+    qmk
+    qmk-udev-rules
+    hidapi
+    avrdude
+    dfu-programmer
+    dfu-util
+    dos2unix
     alsa-lib
     gnumake
     unzip
