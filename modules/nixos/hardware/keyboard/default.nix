@@ -16,7 +16,7 @@
     vial
     gcc-arm-embedded
     pkgsCross.avr.buildPackages.gcc
-    avrlibc
+    pkgsCross.avr.avrlibc
     avrdude
     dfu-programmer
     dfu-util

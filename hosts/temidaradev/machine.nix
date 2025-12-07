@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, system, ... }:
 
 let
   globalPackages = import ../packages.nix { inherit pkgs; };
@@ -10,5 +10,7 @@ in
     ../../modules/nixos
   ];
 
-  environment.systemPackages = globalPackages.system ++ hostPackages.system;
+  environment.systemPackages = globalPackages.system ++ hostPackages.system ++ [
+    inputs.helium.packages.${system}.default
+  ];
 }

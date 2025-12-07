@@ -43,6 +43,7 @@ with pkgs; {
     ffmpeg
     discordo
     youtube-tui
+    sioyek
 
     # Development tools
     git

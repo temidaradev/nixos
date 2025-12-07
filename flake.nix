@@ -6,6 +6,10 @@
     home-manager.url = "github:nix-community/home-manager/master";
     hyprland.url = "github:hyprwm/Hyprland";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    helium = {
+      url = "github:AlvaroParker/helium-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     caelestia-shell = {
       url = "github:caelestia-dots/shell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,7 +19,7 @@
     hyprland.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = {self, nixpkgs, home-manager, hyprland, zen-browser, caelestia-shell, ... }:
+  outputs = {self, nixpkgs, home-manager, hyprland, zen-browser, helium, caelestia-shell, ... }:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -28,12 +32,20 @@
           ./hosts/temidaradev/machine.nix
           hyprland.nixosModules.default
         ];
+        specialArgs = {
+          inherit helium system;
+          inputs = { inherit helium; };
+        };
       };
       temidaradev-plasma = lib.nixosSystem {
         inherit system;
         modules = [ 
           ./hosts/temidaradev-plasma/machine.nix
         ];
+        specialArgs = {
+          inherit helium system;
+          inputs = { inherit helium; };
+        };
       };
     };
     homeConfigurations = {
@@ -44,7 +56,7 @@
           hyprland.homeManagerModules.default
         ];
         extraSpecialArgs = {
-          inherit hyprland caelestia-shell zen-browser;
+          inherit hyprland caelestia-shell zen-browser helium;
         };
       };
       temidaradev-plasma = home-manager.lib.homeManagerConfiguration {
@@ -53,7 +65,7 @@
           ./hosts/temidaradev-plasma/home.nix
         ];
         extraSpecialArgs = {
-          inherit zen-browser;
+          inherit zen-browser helium;
         };
       };
     };

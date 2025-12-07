@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, system, ... }:
 
 let
   globalPackages = import ../packages.nix { inherit pkgs; };
@@ -20,5 +20,7 @@ in
     ../../modules/nixos/desktop/window-managers/plasma.nix
   ];
 
-  environment.systemPackages = globalPackages.system ++ hostPackages.system;
+  environment.systemPackages = globalPackages.system ++ hostPackages.system ++ [
+    inputs.helium.packages.${system}.default
+  ];
 }
