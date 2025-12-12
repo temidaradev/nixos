@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.canTouchEfiVariables = false;
 
   boot.loader = {
     timeout = 10;
