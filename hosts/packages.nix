@@ -5,6 +5,7 @@ with pkgs; {
     # Gaming
     lunar-client
     osu-lazer
+    heroic
 
     # Networking
     protonvpn-gui
@@ -44,6 +45,8 @@ with pkgs; {
     discordo
     youtube-tui
     sioyek
+    gsmartcontrol
+    smartmontools
 
     # Development tools
     git

@@ -13,5 +13,6 @@ with pkgs; {
     kdePackages.kate
     kdePackages.kwalletmanager
     kdePackages.partitionmanager
+    kdePackages.kpmcore
   ];
 }
