@@ -47,6 +47,8 @@ with pkgs; {
     sioyek
     gsmartcontrol
     smartmontools
+    conky
+    eww
 
     # Development tools
     git
