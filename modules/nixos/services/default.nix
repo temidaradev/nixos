@@ -10,5 +10,6 @@
     ./psql
     ./flatpak
     ./fwupd
+    ./monero
   ];
 }

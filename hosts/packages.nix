@@ -49,6 +49,7 @@ with pkgs; {
     smartmontools
     conky
     eww
+    monero-gui
 
     # Development tools
     git
@@ -117,7 +118,6 @@ with pkgs; {
     glm
     glib
     zlib
-    rustup
     zig
     lua
   ];
