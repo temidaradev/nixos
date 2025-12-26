@@ -50,6 +50,8 @@ with pkgs; {
     conky
     eww
     monero-gui
+    qbittorrent
+    localsend
 
     # Development tools
     git
