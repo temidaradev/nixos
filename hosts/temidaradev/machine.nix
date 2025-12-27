@@ -10,6 +10,8 @@ in
     ../../modules/nixos
   ];
 
+  temidaradev.hardware.graphics.driver = "amd";
+
   environment.systemPackages = globalPackages.system ++ hostPackages.system ++ [
     inputs.helium.packages.${system}.default
   ];

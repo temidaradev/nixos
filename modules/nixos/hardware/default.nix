@@ -6,5 +6,6 @@
     ./graphics
     ./udev
     ./keyboard
+    ./otd
   ];
 }

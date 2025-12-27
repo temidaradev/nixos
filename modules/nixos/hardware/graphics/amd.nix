@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 
-{
+lib.mkIf (config.temidaradev.hardware.graphics.driver == "amd") {
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
