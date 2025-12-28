@@ -14,8 +14,4 @@ lib.mkIf (config.temidaradev.hardware.graphics.driver == "nvidia") {
   hardware.enableRedistributableFirmware = true;
 
   users.users.temidaradev.extraGroups = [ "video" "render" ];
-
-  environment.systemPackages = with pkgs; [
-    nvtopPackages.nvidia
-  ];
 }

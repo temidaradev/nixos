@@ -50,8 +50,6 @@ with pkgs; {
     conky
     eww
     monero-gui
-    qbittorrent
-    localsend
 
     # Development tools
     git
@@ -115,10 +113,12 @@ with pkgs; {
     cargo
     rustc
     gcc
+    binutils
     libGL
     wget
     glm
     glib
+    glibc
     zlib
     zig
     lua
