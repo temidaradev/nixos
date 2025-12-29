@@ -50,6 +50,7 @@ with pkgs; {
     conky
     eww
     monero-gui
+    tradingview
 
     # Development tools
     git
