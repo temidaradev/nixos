@@ -51,6 +51,8 @@ with pkgs; {
     eww
     monero-gui
     tradingview
+    qbittorrent
+    localsend
 
     # Development tools
     git
