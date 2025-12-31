@@ -157,6 +157,7 @@ with pkgs; {
     alsa-utils
     libnotify
     dunst
+    zip
 
     # Fonts
     noto-fonts-cjk-sans
