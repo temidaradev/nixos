@@ -53,6 +53,7 @@ with pkgs; {
     tradingview
     qbittorrent
     localsend
+    jellyfin-media-player
 
     # Development tools
     git
