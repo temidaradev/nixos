@@ -22,6 +22,15 @@
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
+  
+  fileSystems."/mnt/1TB-HDD" = {
+    device = "/dev/disk/by-uuid/d870dc25-8190-44c5-8bc8-26a8f557aed3";
+    fsType = "ext4";
+    options = [
+      "rw"
+      "noatime"
+    ];
+  };
 
   swapDevices = [{
     device = "/var/lib/swapfile";
