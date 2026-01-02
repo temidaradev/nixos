@@ -115,7 +115,6 @@ with pkgs; {
     ghc
     cabal-install
     go
-    cargo
     rustc
     gcc
     binutils
@@ -170,6 +169,7 @@ with pkgs; {
     firefox
     librewolf
     telegram-desktop
+    nextcloud-client
     youtube-music
     blender
     godot
