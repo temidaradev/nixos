@@ -11,6 +11,10 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+  boot.kernel.sysctl = {
+    "vm.swappiness" = 5;
+    "vm.vfs_cache_pressure" = 50;
+  };
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/663b49b4-140f-4e31-83dd-bb45c1b9d308";
@@ -29,6 +33,8 @@
     options = [
       "rw"
       "noatime"
+      "nodiratime"
+      "commit=60"
     ];
   };
 

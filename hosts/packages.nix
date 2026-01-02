@@ -54,6 +54,7 @@ with pkgs; {
     qbittorrent
     localsend
     jellyfin-media-player
+    parted
 
     # Development tools
     git
