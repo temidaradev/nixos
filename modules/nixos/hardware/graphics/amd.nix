@@ -60,10 +60,8 @@ lib.mkIf (config.temidaradev.hardware.graphics.driver == "amd") {
     KERNEL=="renderD[0-9]*", SUBSYSTEM=="drm", MODE="0666"
     KERNEL=="hwmon[0-9]*", SUBSYSTEM=="hwmon", SUBSYSTEMS=="pci", ATTRS{vendor}=="0x1002", MODE="0644"
     
-    # Force GPU to high performance mode
-    KERNEL=="hwmon[0-9]*", SUBSYSTEM=="hwmon", SUBSYSTEMS=="pci", DRIVERS=="amdgpu", ATTR{power1_cap_max}="*", ATTR{power1_cap}="%E{power1_cap_max}"
+    # Allow GPU to manage power dynamically for better boost behavior
     SUBSYSTEM=="pci", DRIVER=="amdgpu", ATTR{power/control}="on"
-    SUBSYSTEM=="drm", KERNEL=="card[0-9]*", ATTR{device/power_dpm_force_performance_level}="high"
   '';
   
   environment.variables = {
@@ -71,10 +69,8 @@ lib.mkIf (config.temidaradev.hardware.graphics.driver == "amd") {
     LIBVA_DRIVER_NAME = "radeonsi";
     VDPAU_DRIVER = "radeonsi";
     AMD_VULKAN_ICD = "RADV";
-    RADV_PERFTEST = "sam,nggc,rt,gpl";
-    RADV_DEBUG = "zerovram";
+    RADV_PERFTEST = "gpl";
     mesa_glthread = "true";
-    vblank_mode = "0";
     ROC_ENABLE_PRE_VEGA = "1";
     LD_LIBRARY_PATH = "/run/opengl-driver/lib";
   };

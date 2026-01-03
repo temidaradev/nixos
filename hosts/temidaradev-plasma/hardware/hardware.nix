@@ -12,7 +12,7 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
   boot.kernel.sysctl = {
-    "vm.swappiness" = 5;
+    "vm.swappiness" = 10;  # Was 1, too aggressive - pages stuck in swap
     "vm.vfs_cache_pressure" = 50;
   };
 
