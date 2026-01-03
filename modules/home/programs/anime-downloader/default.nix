@@ -1,8 +1,7 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-    programs.anime-downloader = {
-        enable = true;
-        package = pkgs.anime-downloader;
-    };
+  home.packages = with pkgs; [
+    ani-cli
+  ];
 }

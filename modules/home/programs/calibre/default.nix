@@ -1,8 +1,7 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  programs.calibre = {
-    enable = true;
-    package = pkgs.calibre;
-  };
+  home.packages = with pkgs; [
+    calibre
+  ];
 }
