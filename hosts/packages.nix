@@ -30,6 +30,11 @@ with pkgs; {
     doublecmd
     rar
 
+    # iphone stuff
+    libimobiledevice
+    ifuse
+    usbmuxd
+
     # Virtualization
     vmware-workstation
     docker
