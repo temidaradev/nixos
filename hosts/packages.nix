@@ -25,7 +25,6 @@ with pkgs; {
 
     # MTP support for Android devices
     libmtp
-    mtpfs
     jmtpfs
     doublecmd
     rar
@@ -109,6 +108,7 @@ with pkgs; {
     jetbrains.rust-rover
     jetbrains.goland
     jetbrains.clion
+    lmstudio
 
     # Languages
     (python312.withPackages (ps: with ps; [ websockets ]))
