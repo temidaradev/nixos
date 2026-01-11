@@ -109,6 +109,7 @@ with pkgs; {
     jetbrains.goland
     jetbrains.clion
     lmstudio
+    wl-clipboard
 
     # Languages
     (python312.withPackages (ps: with ps; [ websockets ]))
