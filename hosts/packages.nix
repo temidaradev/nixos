@@ -97,9 +97,14 @@ with pkgs; {
     discord
     slack
     dioxus-cli
+    sqlite
+    picotool
+    stripe-cli
+    tigervnc
 
     # Editors
     vim
+    antigravity
     neovim
     helix
     vscode
