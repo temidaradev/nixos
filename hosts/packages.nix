@@ -53,7 +53,6 @@ with pkgs; {
     smartmontools
     conky
     eww
-    monero-gui
     tradingview
     qbittorrent
     localsend
@@ -101,6 +100,7 @@ with pkgs; {
     picotool
     stripe-cli
     tigervnc
+    xmrig
 
     # Editors
     vim
