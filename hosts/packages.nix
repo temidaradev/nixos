@@ -93,7 +93,6 @@ with pkgs; {
     material-symbols
     nerd-fonts.caskaydia-cove
     kitty
-    discord
     slack
     dioxus-cli
     sqlite
@@ -101,6 +100,8 @@ with pkgs; {
     stripe-cli
     tigervnc
     xmrig
+    chromium
+    autossh
 
     # Editors
     vim

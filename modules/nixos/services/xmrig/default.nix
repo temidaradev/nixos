@@ -5,7 +5,10 @@
     enable = true;
     settings = {
       autosave = true;
-      cpu = true;
+      cpu = {
+        enabled = true;
+        rx = [ 0 2 4 6 8 10 ];
+      };
       opencl = false;
       cuda = false;
       pools = [
@@ -27,4 +30,16 @@
   };
 
   systemd.services.xmrig.wantedBy = pkgs.lib.mkForce [];
+
+  security.sudo.extraRules = [
+    {
+      users = [ "temidaradev" ];
+      commands = [
+        { 
+          command = "/run/current-system/sw/bin/systemctl restart xmrig";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+    }
+  ];
 }
