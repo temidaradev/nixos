@@ -11,6 +11,8 @@ in
   ];
 
   temidaradev.hardware.graphics.driver = "amd";
+  # Use the hyprland package from the local `pkgs` (overlayed above)
+  programs.hyprland.package = pkgs.hyprland;
 
   environment.systemPackages = globalPackages.system ++ hostPackages.system ++ [
     inputs.helium.packages.${system}.default

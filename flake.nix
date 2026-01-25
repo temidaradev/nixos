@@ -19,21 +19,22 @@
     hyprland.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-
   outputs = {self, nixpkgs, home-manager, hyprland, zen-browser, helium, caelestia-shell, ... }:
     let
-      system = "x86_64-linux";
-
-      overlays = [
-        (final: prev: {
-          hyprland = prev.hyprland.overrideAttrs (old: {
-            nativeBuildInputs = (old.nativeBuildInputs or []) ++ [ final.git ];
-          });
-        })
-      ];
-      pkgs = import nixpkgs { inherit system; overlays = overlays; };
       lib = nixpkgs.lib;
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [
+          (final: prev: {
+            hyprland = prev.hyprland.overrideAttrs (old: {
+              nativeBuildInputs = (old.nativeBuildInputs or []) ++ [ prev.git ];
+            });
+          })
+        ];
+      };
     in {
+      # overlays are applied when importing nixpkgs above
     nixosConfigurations = {
       temidaradev = lib.nixosSystem {
         inherit system;
@@ -41,22 +42,20 @@
           ./hosts/temidaradev/machine.nix
           hyprland.nixosModules.default
         ];
-          specialArgs = {
-            inherit helium system;
-            inputs = { inherit helium; };
-            pkgs = pkgs;
-          };
+        specialArgs = {
+          inherit helium system;
+          inputs = { inherit helium; };
+        };
       };
       temidaradev-plasma = lib.nixosSystem {
         inherit system;
         modules = [ 
           ./hosts/temidaradev-plasma/machine.nix
         ];
-          specialArgs = {
-            inherit helium system;
-            inputs = { inherit helium; };
-            pkgs = pkgs;
-          };
+        specialArgs = {
+          inherit helium system;
+          inputs = { inherit helium; };
+        };
       };
     };
     homeConfigurations = {
