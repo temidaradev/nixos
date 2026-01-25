@@ -32,7 +32,7 @@
         })
       ];
       pkgs = import nixpkgs { inherit system; overlays = overlays; };
-      lib = pkgs.lib;
+      lib = nixpkgs.lib;
     in {
     nixosConfigurations = {
       temidaradev = lib.nixosSystem {
@@ -41,20 +41,22 @@
           ./hosts/temidaradev/machine.nix
           hyprland.nixosModules.default
         ];
-        specialArgs = {
-          inherit helium system;
-          inputs = { inherit helium; };
-        };
+          specialArgs = {
+            inherit helium system;
+            inputs = { inherit helium; };
+            pkgs = pkgs;
+          };
       };
       temidaradev-plasma = lib.nixosSystem {
         inherit system;
         modules = [ 
           ./hosts/temidaradev-plasma/machine.nix
         ];
-        specialArgs = {
-          inherit helium system;
-          inputs = { inherit helium; };
-        };
+          specialArgs = {
+            inherit helium system;
+            inputs = { inherit helium; };
+            pkgs = pkgs;
+          };
       };
     };
     homeConfigurations = {
