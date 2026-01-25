@@ -22,17 +22,18 @@
 
   outputs = {self, nixpkgs, home-manager, hyprland, zen-browser, helium, caelestia-shell, ... }:
     let
-      lib = nixpkgs.lib;
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+
+      overlays = [
+        (final: prev: {
+          hyprland = prev.hyprland.overrideAttrs (old: {
+            nativeBuildInputs = (old.nativeBuildInputs or []) ++ [ final.git ];
+          });
+        })
+      ];
+      pkgs = import nixpkgs { inherit system; overlays = overlays; };
+      lib = pkgs.lib;
     in {
-       overlays = [
-    (final: prev: {
-      hyprland = prev.hyprland.overrideAttrs (old: {
-  nativeBuildInputs = (old.nativeBuildInputs or []) ++ [ prev.git ];
-});
-    })
-  ];
     nixosConfigurations = {
       temidaradev = lib.nixosSystem {
         inherit system;
