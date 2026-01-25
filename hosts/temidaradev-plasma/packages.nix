@@ -1,9 +1,10 @@
 { pkgs }:
 
 with pkgs; {
-  system = [ ];
-  
   home = [
+  ];
+  
+  system = [
     # Plasma-specific packages
     kdePackages.kdeconnect-kde
     kdePackages.plasma-browser-integration
@@ -14,5 +15,9 @@ with pkgs; {
     kdePackages.kwalletmanager
     kdePackages.partitionmanager
     kdePackages.kpmcore
+    kdePackages.krfb
+    kdePackages.libkscreen
+    pkgs.kdePackages.krdp
+    wayvnc
   ];
 }
