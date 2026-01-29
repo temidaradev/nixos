@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 
-lib.mkIf (config.temidaradev.hardware.graphics.driver == "amd") {
+{
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -33,7 +33,7 @@ lib.mkIf (config.temidaradev.hardware.graphics.driver == "amd") {
   };
 
   services.xserver.videoDrivers = [ "amdgpu" ];
-  
+
   boot.kernelParams = [
     "amdgpu.dc=1"
     "amdgpu.gpu_recovery=1"

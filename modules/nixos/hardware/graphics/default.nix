@@ -2,9 +2,8 @@
 
 {
   options.temidaradev.hardware.graphics.driver = lib.mkOption {
-    type = lib.types.enum [ "amd" "nvidia" ];
+    type = lib.types.enum [ "amd" ];
     default = "amd";
-    description = "Which GPU driver stack to configure.";
   };
 
   config.hardware.graphics = {
@@ -14,6 +13,5 @@
 
   imports = [
     ./amd.nix
-    ./nvidia.nix
   ];
 }

@@ -10,7 +10,7 @@ in
     ../../modules/nixos
   ];
 
-  temidaradev.hardware.graphics.driver = "amd";
+  
   # Use the hyprland package from the local `pkgs` (overlayed above)
   programs.hyprland.package = pkgs.hyprland;
 
