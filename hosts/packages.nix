@@ -102,6 +102,11 @@ with pkgs; {
     xmrig
     chromium
     autossh
+    glib-networking
+    libsoup_3
+    gtk3
+    webkitgtk_4_1
+    xdotool
 
     # Editors
     vim
@@ -122,7 +127,6 @@ with pkgs; {
     python312Packages.pip
     uv
     pkg-config
-    openssl.dev
     odin
     ghc
     cabal-install
@@ -157,7 +161,6 @@ with pkgs; {
     pantheon.elementary-icon-theme
     tango-icon-theme
     arc-icon-theme
-    gtk3
     shared-mime-info
     qalculate-gtk
     kdePackages.gwenview
