@@ -82,6 +82,7 @@ with pkgs; {
     fish
     openssl
     android-studio
+    solaar
     aubio
     docker-compose
     pipewire

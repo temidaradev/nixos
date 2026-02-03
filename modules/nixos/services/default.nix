@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./appimage
     ./kde_connect
     ./printing
     ./ssh
