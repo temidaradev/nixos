@@ -12,5 +12,6 @@
     ./flatpak
     ./fwupd
     ./xmrig
+    ./samba
   ];
 }
