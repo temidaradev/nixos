@@ -81,6 +81,7 @@ with pkgs; {
     lm_sensors
     fish
     openssl
+    openssl.dev
     android-studio
     solaar
     aubio
