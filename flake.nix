@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager/master";
     hyprland.url = "github:hyprwm/Hyprland";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     helium = {
@@ -15,16 +14,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = {self, nixpkgs, home-manager, hyprland, zen-browser, helium, caelestia-shell, ... }:
+  outputs = {self, nixpkgs, hyprland, zen-browser, helium, caelestia-shell, ... }:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
+        config.allowUnfree = true;
         overlays = [
           (final: prev: {
             hyprland = prev.hyprland.overrideAttrs (old: {
@@ -34,48 +33,17 @@
         ];
       };
     in {
-      # overlays are applied when importing nixpkgs above
     nixosConfigurations = {
       temidaradev = lib.nixosSystem {
-        inherit system;
         modules = [ 
-          ./hosts/temidaradev/machine.nix
+          ./machine.nix
           hyprland.nixosModules.default
+          (nixpkgs + "/nixos/modules/misc/nixpkgs/read-only.nix")
+          { nixpkgs.pkgs = pkgs; }
         ];
         specialArgs = {
-          inherit helium system;
+          inherit helium system zen-browser caelestia-shell;
           inputs = { inherit helium; };
-        };
-      };
-      temidaradev-plasma = lib.nixosSystem {
-        inherit system;
-        modules = [ 
-          ./hosts/temidaradev-plasma/machine.nix
-        ];
-        specialArgs = {
-          inherit helium system;
-          inputs = { inherit helium; };
-        };
-      };
-    };
-    homeConfigurations = {
-      temidaradev = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [ 
-          ./hosts/temidaradev/home.nix
-          hyprland.homeManagerModules.default
-        ];
-        extraSpecialArgs = {
-          inherit hyprland caelestia-shell zen-browser helium;
-        };
-      };
-      temidaradev-plasma = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [ 
-          ./hosts/temidaradev-plasma/home.nix
-        ];
-        extraSpecialArgs = {
-          inherit zen-browser helium;
         };
       };
     };
