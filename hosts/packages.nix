@@ -125,8 +125,6 @@ with pkgs; {
     wl-clipboard
 
     # Languages
-    (python312.withPackages (ps: with ps; [ websockets ]))
-    python312Packages.pip
     uv
     pkg-config
     odin
