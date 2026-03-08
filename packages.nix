@@ -41,6 +41,7 @@ with pkgs; {
     # Desktop
     bibata-cursors
     flatpak
+    feh
     xdg-desktop-portal
     xdg-desktop-portal-hyprland
     fwupd
