@@ -13,11 +13,12 @@
       url = "github:caelestia-dots/shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    rusic.url = "github:temidaradev/rusic";
 
     hyprland.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = {self, nixpkgs, hyprland, zen-browser, helium, caelestia-shell, ... }:
+  outputs = {self, nixpkgs, hyprland, zen-browser, helium, caelestia-shell, rusic, ... }:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -42,8 +43,8 @@
           { nixpkgs.pkgs = pkgs; }
         ];
         specialArgs = {
-          inherit helium system zen-browser caelestia-shell;
-          inputs = { inherit helium; };
+          inherit helium system zen-browser caelestia-shell rusic;
+          inputs = { inherit helium rusic; };
         };
       };
     };

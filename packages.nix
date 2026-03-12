@@ -2,6 +2,7 @@
 
 with pkgs; {
   system = [
+    opentabletdriver
     # Gaming
     lunar-client
     osu-lazer
@@ -66,6 +67,7 @@ with pkgs; {
     qmk
     qmk-udev-rules
     hidapi
+    cachix
     avrdude
     dfu-programmer
     dfu-util
