@@ -59,6 +59,7 @@ with pkgs; {
     localsend
     jellyfin-media-player
     parted
+    ollama
 
     # Development tools
     git

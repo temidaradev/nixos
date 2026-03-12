@@ -27,8 +27,6 @@
     XDG_CURRENT_DESKTOP = "Hyprland";
     GDK_BACKEND = "wayland,x11";
     QT_QPA_PLATFORM = "wayland;xcb";
-    SDL_VIDEODRIVER = "wayland";
-    CLUTTER_BACKEND = "wayland";
     LIBVA_DRIVER_NAME = "radeonsi";
     AQ_NO_MODIFIERS = "1";
   };
