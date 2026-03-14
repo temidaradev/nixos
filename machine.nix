@@ -12,7 +12,7 @@ in
   environment.systemPackages = packages.system ++ [
     inputs.helium.packages.${system}.default
     zen-browser.packages.${system}.default
-    caelestia-shell.packages.${system}.default
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     rusic.packages.${system}.default
   ];
 }

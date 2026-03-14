@@ -23,6 +23,6 @@
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    config.hyprland.default = [ "hyprland" "gtk" ];
+    config.niri.default = pkgs.lib.mkForce [ "niri" "gtk" ];
   };
 }

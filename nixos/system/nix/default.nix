@@ -1,10 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  programs.nix-ld.enable = true;
-
   nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
     substituters = [
       "https://cache.nixos.org"
       "https://rusic.cachix.org"
@@ -14,5 +12,6 @@
       "rusic.cachix.org-1:WXMpGpamblLUiJtcoxBxGGGGwIcWxGPJBUxarLiqWmw="
     ];
   };
-}
 
+  programs.nix-ld.enable = true;
+}

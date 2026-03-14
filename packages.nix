@@ -42,9 +42,14 @@ with pkgs; {
     # Desktop
     bibata-cursors
     flatpak
+    fuzzel
+    swaylock
+    mako
+    swayidle
+    xwayland-satellite
     feh
     xdg-desktop-portal
-    xdg-desktop-portal-hyprland
+    xdg-desktop-portal-wlr
     fwupd
     whatsapp-electron
     ffmpeg
@@ -61,6 +66,7 @@ with pkgs; {
     jellyfin-media-player
     parted
     ollama
+    alacritty
 
     # Development tools
     git

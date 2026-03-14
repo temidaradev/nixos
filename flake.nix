@@ -3,22 +3,26 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    hyprland.url = "github:hyprwm/Hyprland";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     helium = {
       url = "github:AlvaroParker/helium-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    caelestia-shell = {
-      url = "github:caelestia-dots/shell";
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.noctalia-qs.follows = "noctalia-qs";
+    };
+
+    noctalia-qs = {
+      url = "github:noctalia-dev/noctalia-qs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     rusic.url = "github:temidaradev/rusic";
 
-    hyprland.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = {self, nixpkgs, hyprland, zen-browser, helium, caelestia-shell, rusic, ... }:
+  outputs = inputs@{ self, nixpkgs, zen-browser, helium, rusic, noctalia, noctalia-qs, ... }:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -26,11 +30,6 @@
         inherit system;
         config.allowUnfree = true;
         overlays = [
-          (final: prev: {
-            hyprland = prev.hyprland.overrideAttrs (old: {
-              nativeBuildInputs = (old.nativeBuildInputs or []) ++ [ prev.git ];
-            });
-          })
         ];
       };
     in {
@@ -38,13 +37,15 @@
       temidaradev = lib.nixosSystem {
         modules = [ 
           ./machine.nix
-          hyprland.nixosModules.default
+          ./nixos/desktop/window-managers/niri.nix
           (nixpkgs + "/nixos/modules/misc/nixpkgs/read-only.nix")
+          noctalia.nixosModules.default
+          { services.noctalia-shell.enable = true; }
           { nixpkgs.pkgs = pkgs; }
         ];
         specialArgs = {
-          inherit helium system zen-browser caelestia-shell rusic;
-          inputs = { inherit helium rusic; };
+          inherit helium system zen-browser rusic noctalia noctalia-qs;
+          inputs = { inherit helium rusic noctalia noctalia-qs; };
         };
       };
     };
