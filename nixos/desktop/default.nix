@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
@@ -21,8 +21,11 @@
   };
 
   xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    config.niri.default = pkgs.lib.mkForce [ "niri" "gtk" ];
-  };
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-gnome
+      ];
+      config.niri.default = [ "gnome" "gtk" ];
+    };
 }

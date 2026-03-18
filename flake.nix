@@ -35,7 +35,7 @@
     in {
     nixosConfigurations = {
       temidaradev = lib.nixosSystem {
-        modules = [ 
+        modules = [
           ./machine.nix
           ./nixos/desktop/window-managers/niri.nix
           (nixpkgs + "/nixos/modules/misc/nixpkgs/read-only.nix")

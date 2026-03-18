@@ -5,8 +5,6 @@ with pkgs; {
     opentabletdriver
     # Gaming
     lunar-client
-    osu-lazer
-    heroic
 
     # Networking
     protonvpn-gui
@@ -46,10 +44,9 @@ with pkgs; {
     swaylock
     mako
     swayidle
+    obs-studio
     xwayland-satellite
     feh
-    xdg-desktop-portal
-    xdg-desktop-portal-wlr
     fwupd
     whatsapp-electron
     ffmpeg
@@ -161,6 +158,7 @@ with pkgs; {
     grim
     slurp
     wf-recorder
+    wl-screenrec
     imagemagick
     gpu-screen-recorder
     nixos-icons
