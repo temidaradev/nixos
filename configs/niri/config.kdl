@@ -269,7 +269,6 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "qs" "-c" "noctalia-shell"
 
 workspace "development"
 workspace "browser"
@@ -667,4 +666,3 @@ binds {
 }
 
 include "./noctalia.kdl"
-
