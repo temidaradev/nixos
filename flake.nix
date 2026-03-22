@@ -35,10 +35,10 @@
       temidaradev = lib.nixosSystem {
         modules = [
           ./machine.nix
-          ./nixos/desktop/window-managers/niri.nix
+          ./nixos/desktop/window-managers/plasma.nix
           (nixpkgs + "/nixos/modules/misc/nixpkgs/read-only.nix")
           inputs.noctalia.nixosModules.default
-          { services.noctalia-shell.enable = true; }
+          { services.noctalia-shell.enable = false; }
           { nixpkgs.pkgs = pkgs; }
         ];
         specialArgs = {
