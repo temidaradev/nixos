@@ -13,14 +13,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.noctalia-qs.follows = "noctalia-qs";
     };
+
     noctalia-qs = {
       url = "github:noctalia-dev/noctalia-qs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     rusic.url = "github:temidaradev/rusic";
+
   };
 
-  outputs = inputs@{ self, nixpkgs, ... }:
+  outputs = inputs@{ self, nixpkgs, zen-browser, helium, rusic, noctalia, noctalia-qs, ... }:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -33,16 +35,17 @@
     in {
     nixosConfigurations = {
       temidaradev = lib.nixosSystem {
-        modules = [
+        modules = [ 
           ./machine.nix
-          ./nixos/desktop/window-managers/plasma.nix
+          ./nixos/desktop/window-managers/niri.nix
           (nixpkgs + "/nixos/modules/misc/nixpkgs/read-only.nix")
-          inputs.noctalia.nixosModules.default
-          { services.noctalia-shell.enable = false; }
+          noctalia.nixosModules.default
+          { services.noctalia-shell.enable = true; }
           { nixpkgs.pkgs = pkgs; }
         ];
         specialArgs = {
-          inherit system inputs;
+          inherit helium system zen-browser rusic noctalia noctalia-qs;
+          inputs = { inherit helium rusic noctalia noctalia-qs; };
         };
       };
     };

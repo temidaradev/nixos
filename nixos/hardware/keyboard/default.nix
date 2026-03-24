@@ -2,14 +2,14 @@
 
 {
   hardware.keyboard.qmk.enable = true;
-
+  
   services.udev.packages = with pkgs; [
     qmk-udev-rules
     via
   ];
-
+  
   users.groups.plugdev = {};
-
+  
   environment.systemPackages = with pkgs; [
     qmk
     via

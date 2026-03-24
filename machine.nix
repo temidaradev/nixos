@@ -1,4 +1,4 @@
-{ pkgs, inputs, system, ... }:
+{ config, pkgs, inputs, system, zen-browser, caelestia-shell, rusic, ... }:
 
 let
   packages = import ./packages.nix { inherit pkgs; };
@@ -11,9 +11,8 @@ in
 
   environment.systemPackages = packages.system ++ [
     inputs.helium.packages.${system}.default
-    inputs.zen-browser.packages.${system}.default
-    inputs.noctalia.packages.${system}.default
-    inputs.noctalia-qs.packages.${system}.default
-    inputs.rusic.packages.${system}.default
+    zen-browser.packages.${system}.default
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    rusic.packages.${system}.default
   ];
 }

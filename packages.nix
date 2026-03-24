@@ -5,6 +5,8 @@ with pkgs; {
     opentabletdriver
     # Gaming
     lunar-client
+    osu-lazer
+    heroic
 
     # Networking
     protonvpn-gui
@@ -44,9 +46,10 @@ with pkgs; {
     swaylock
     mako
     swayidle
-    obs-studio
     xwayland-satellite
     feh
+    xdg-desktop-portal
+    xdg-desktop-portal-wlr
     fwupd
     whatsapp-electron
     ffmpeg
@@ -132,7 +135,6 @@ with pkgs; {
     # Languages
     uv
     pkg-config
-    (python3.withPackages (ps: with ps; [ websockets ]))
     odin
     ghc
     cabal-install
@@ -154,25 +156,11 @@ with pkgs; {
     wofi
 
     # Desktop tools
-    # Provide Plasma QML modules and plasmoid utilities
-    kdePackages.kdeconnect-kde
-    kdePackages.plasma-browser-integration
-    kdePackages.kalk
-    kdePackages.spectacle
-    kdePackages.konsole
-    kdePackages.kate
-    kdePackages.kwalletmanager
-    kdePackages.partitionmanager
-    kdePackages.kpmcore
-    kdePackages.krfb
-    kdePackages.libkscreen
-
     anime-downloader
     wl-clipboard
     grim
     slurp
     wf-recorder
-    wl-screenrec
     imagemagick
     gpu-screen-recorder
     nixos-icons
