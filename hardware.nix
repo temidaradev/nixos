@@ -11,12 +11,12 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/663b49b4-140f-4e31-83dd-bb45c1b9d308";
+    { device = "/dev/disk/by-uuid/a4e5954a-d5fd-419a-b5d1-0a86d5d054a0";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/418A-71BC";
+    { device = "/dev/disk/by-uuid/3020-CF28";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
@@ -33,8 +33,7 @@
   };
 
   swapDevices = [{
-    device = "/var/lib/swapfile";
-    size = 12*1024; # 12 GB
+    device = "/dev/disk/by-uuid/2a22c94c-53a3-4806-b566-edec101b6648";
   }];
 
   networking.useDHCP = lib.mkDefault true;
