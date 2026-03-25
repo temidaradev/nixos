@@ -140,6 +140,7 @@ with pkgs; {
     cabal-install
     go
     rustc
+    rustup
     gcc
     binutils
     libGL
