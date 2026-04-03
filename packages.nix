@@ -9,7 +9,7 @@ with pkgs; {
     heroic
 
     # Networking
-    protonvpn-gui
+    proton-vpn
     nicotine-plus
 
     # Hardware

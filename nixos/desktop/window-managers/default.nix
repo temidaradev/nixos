@@ -2,6 +2,6 @@
 
 {
   imports = [
-    ./niri.nix
+    ./hyrpland.nix
   ];
 }

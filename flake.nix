@@ -35,12 +35,10 @@
     in {
     nixosConfigurations = {
       temidaradev = lib.nixosSystem {
-        modules = [ 
+        modules = [
           ./machine.nix
-          ./nixos/desktop/window-managers/niri.nix
+          ./nixos/desktop/window-managers/hyrpland.nix
           (nixpkgs + "/nixos/modules/misc/nixpkgs/read-only.nix")
-          noctalia.nixosModules.default
-          { services.noctalia-shell.enable = true; }
           { nixpkgs.pkgs = pkgs; }
         ];
         specialArgs = {
