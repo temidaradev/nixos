@@ -178,7 +178,6 @@ with pkgs; {
     mpv
     pavucontrol
     playerctl
-    pulseaudio
     pamixer
     alsa-utils
     zip

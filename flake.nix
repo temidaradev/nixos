@@ -8,10 +8,6 @@
       url = "github:AlvaroParker/helium-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    caelestia-shell = {
-      url = "github:caelestia-dots/shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,7 +22,7 @@
 
   };
 
-  outputs = inputs@{ self, nixpkgs, zen-browser, helium, caelestia-shell, rusic, noctalia, noctalia-qs, ... }:
+  outputs = inputs@{ self, nixpkgs, zen-browser, helium, rusic, noctalia, noctalia-qs, ... }:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -39,15 +35,17 @@
     in {
     nixosConfigurations = {
       temidaradev = lib.nixosSystem {
-        modules = [
+        modules = [ 
           ./machine.nix
-          ./nixos/desktop/window-managers/hyrpland.nix
+          ./nixos/desktop/window-managers/niri.nix
           (nixpkgs + "/nixos/modules/misc/nixpkgs/read-only.nix")
+          noctalia.nixosModules.default
+          { services.noctalia-shell.enable = true; }
           { nixpkgs.pkgs = pkgs; }
         ];
         specialArgs = {
-          inherit helium system zen-browser rusic noctalia noctalia-qs caelestia-shell;
-          inputs = { inherit helium rusic noctalia noctalia-qs caelestia-shell; };
+          inherit helium system zen-browser rusic noctalia noctalia-qs;
+          inputs = { inherit helium rusic noctalia noctalia-qs; };
         };
       };
     };

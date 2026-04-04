@@ -11,7 +11,6 @@ in
 
   environment.systemPackages = packages.system ++ [
     inputs.helium.packages.${system}.default
-    caelestia-shell.packages.${system}.with-cli
     zen-browser.packages.${system}.default
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     rusic.packages.${system}.default
