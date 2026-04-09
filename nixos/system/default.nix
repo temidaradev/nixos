@@ -14,6 +14,7 @@
       noto-fonts-cjk-serif
       noto-fonts-color-emoji
       ipaexfont
+      nerd-fonts.jetbrains-mono
     ];
 
     fontconfig = {
@@ -32,9 +33,15 @@
       };
 
       defaultFonts = {
-        serif = [ "Noto Serif CJK JP" "Noto Serif" "IPAexMincho" ];
-        sansSerif = [ "Noto Sans CJK JP" "Noto Sans" "IPAexGothic" ];
-        monospace = [ "JetBrainsMono Nerd Font" "Noto Sans Mono CJK JP" ];
+        serif = [ "JetBrainsMono Nerd Font" "Noto Serif CJK JP" "Noto Serif" "IPAexMincho" ];
+        sansSerif = [ "JetBrainsMono Nerd Font" "Noto Sans CJK JP" "Noto Sans" "IPAexGothic" ];
+        monospace = [
+          "JetBrainsMono Nerd Font Mono"
+          "JetBrainsMono Nerd Font"
+          "Noto Sans Mono CJK JP"
+          "Noto Sans CJK JP"
+          "IPAexGothic"
+        ];
         emoji = [ "Noto Color Emoji" ];
       };
     };
