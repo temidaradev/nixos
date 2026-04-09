@@ -3,6 +3,8 @@
 {
   services.udev.extraRules = ''
     KERNEL=="ttyACM[0-9]*", MODE="0666"
+    ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="2357", ATTR{idProduct}=="0604", TEST=="power/control", ATTR{power/control}="on"
+    ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="2357", ATTR{idProduct}=="0604", TEST=="power/autosuspend", ATTR{power/autosuspend}="-1"
   '';
 
   services.udisks2.enable = true;

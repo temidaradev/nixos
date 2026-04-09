@@ -9,6 +9,12 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     wireplumber.enable = true;
+    wireplumber.extraConfig.bluetooth-stable = {
+      "monitor.bluez.properties" = {
+        "bluez5.codecs" = [ "ldac" "aac" "sbc" ];
+        "bluez5.enable-sbc-xq" = true;
+      };
+    };
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
 
