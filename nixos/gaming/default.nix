@@ -21,7 +21,7 @@
       };
       cpu = {
         park_cores = "no";
-        pin_cores = "yes";
+        pin_cores = "no";
       };
     };
   };
