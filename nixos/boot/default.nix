@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  boot.loader.efi.canTouchEfiVariables = false;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   boot.kernelParams = [
     "amd_pstate=active"
@@ -14,22 +14,7 @@
       efiSysMountPoint = "/boot";
     };
 
-    grub = {
-      enable = true;
-      efiSupport = true;
-      efiInstallAsRemovable = true;
-      devices = ["nodev"];
-      useOSProber = true;
-      extraEntriesBeforeNixOS = false;
-
-      extraEntries = ''
-        menuentry "Reboot" {
-          reboot
-        }
-        menuentry "Poweroff" {
-          halt
-        }
-      '';
-    };
+    grub.enable = false;
+    systemd-boot.enable = true;
   };
 }

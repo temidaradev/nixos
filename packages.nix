@@ -67,6 +67,9 @@ with pkgs; {
     parted
     ollama
     alacritty
+    fzf
+    zoxide
+    eza
 
     # Development tools
     git
