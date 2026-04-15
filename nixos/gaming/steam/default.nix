@@ -35,7 +35,7 @@
         exec "$REAL_STEAM" "$@"
       fi
 
-      if command -v steam-gamescope >/dev/null 2>&1; then
+      if [ "$STEAM_USE_GAMESCOPE" = "1" ] && command -v steam-gamescope >/dev/null 2>&1; then
         exec steam-gamescope "$@"
       fi
 
