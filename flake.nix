@@ -18,11 +18,10 @@
       url = "github:noctalia-dev/noctalia-qs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    rusic.url = "github:temidaradev/rusic";
 
   };
 
-  outputs = inputs@{ self, nixpkgs, zen-browser, helium, rusic, noctalia, noctalia-qs, ... }:
+  outputs = inputs@{ self, nixpkgs, zen-browser, helium, noctalia, noctalia-qs, ... }:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -44,8 +43,8 @@
           { nixpkgs.pkgs = pkgs; }
         ];
         specialArgs = {
-          inherit helium system zen-browser rusic noctalia noctalia-qs;
-          inputs = { inherit helium rusic noctalia noctalia-qs; };
+          inherit helium system zen-browser noctalia noctalia-qs;
+          inputs = { inherit helium noctalia noctalia-qs; };
         };
       };
     };

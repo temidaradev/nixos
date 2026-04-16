@@ -13,6 +13,5 @@ in
     inputs.helium.packages.${system}.default
     zen-browser.packages.${system}.default
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-    rusic.packages.${system}.default
   ];
 }

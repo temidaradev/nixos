@@ -29,5 +29,7 @@
     QT_QPA_PLATFORM = "wayland;xcb";
     LIBVA_DRIVER_NAME = "radeonsi";
     AQ_NO_MODIFIERS = "1";
+    SDL_VIDEODRIVER = "wayland";
+    STEAM_FORCE_DESKTOPUI_SCALING = "1";
   };
 }
