@@ -44,7 +44,6 @@ with pkgs; {
     flatpak
     fuzzel
     swaylock
-    mako
     swayidle
     xwayland-satellite
     feh

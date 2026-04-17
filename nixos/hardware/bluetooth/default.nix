@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
   hardware.bluetooth = {
@@ -6,16 +6,11 @@
     powerOnBoot = true;
     settings = {
       General = {
-        Experimental = false;
-        FastConnectable = true;
-        ControllerMode = "dual";
-      };
-      Policy = {
-        AutoEnable = true;
+        Enable = "Source,Sink,Media,Socket";
+        Experimental = true;
       };
     };
   };
 
   services.blueman.enable = true;
-
 }

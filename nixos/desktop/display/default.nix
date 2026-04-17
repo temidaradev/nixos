@@ -6,12 +6,9 @@
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
-    settings = {
-      General = {
-        DisplayServer = "wayland";
-      };
-    };
   };
+
+  services.libinput.enable = true;
 
   services.xserver.xkb = {
     layout = "us,tr";
@@ -23,13 +20,6 @@
   environment.sessionVariables = {
     XCURSOR_THEME = "Bibata-Modern-Classic";
     XCURSOR_SIZE = "24";
-    XDG_SESSION_TYPE = "wayland";
-    XDG_CURRENT_DESKTOP = "Niri";
-    GDK_BACKEND = "wayland,x11";
-    QT_QPA_PLATFORM = "wayland;xcb";
     LIBVA_DRIVER_NAME = "radeonsi";
-    AQ_NO_MODIFIERS = "1";
-    SDL_VIDEODRIVER = "wayland";
-    STEAM_FORCE_DESKTOPUI_SCALING = "1";
   };
 }
