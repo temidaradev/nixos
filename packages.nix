@@ -160,6 +160,7 @@ with pkgs; {
 
     # Desktop tools
     anime-downloader
+    uxplay
     wl-clipboard
     grim
     slurp
