@@ -13,6 +13,5 @@
     ./fwupd
     ./xmrig
     ./samba
-    ./uxplay
   ];
 }
