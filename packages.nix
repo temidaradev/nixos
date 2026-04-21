@@ -160,6 +160,7 @@ with pkgs; {
 
     # Desktop tools
     anime-downloader
+    yt-dlp
     wl-clipboard
     grim
     slurp
