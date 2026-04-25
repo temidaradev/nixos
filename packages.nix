@@ -129,9 +129,6 @@ with pkgs; {
     helix
     vscode
     zed-editor
-    jetbrains.rust-rover
-    jetbrains.goland
-    jetbrains.clion
     lmstudio
 
     # Languages
