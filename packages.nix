@@ -156,7 +156,6 @@ with pkgs; {
     wofi
 
     # Desktop tools
-    anime-downloader
     yt-dlp
     wl-clipboard
     grim
