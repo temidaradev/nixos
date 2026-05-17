@@ -8,9 +8,13 @@
       url = "github:AlvaroParker/helium-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    caelestia-shell = {
+      url = "github:caelestia-dots/shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ self, nixpkgs, zen-browser, helium, ... }:
+  outputs = inputs@{ self, nixpkgs, zen-browser, helium, caelestia-shell, ... }:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -30,7 +34,7 @@
         ];
         specialArgs = {
           inherit helium system zen-browser;
-          inputs = { inherit helium; };
+          inputs = { inherit helium caelestia-shell; };
         };
       };
     };
