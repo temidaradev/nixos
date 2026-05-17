@@ -57,6 +57,7 @@ with pkgs; {
     sioyek
     gsmartcontrol
     smartmontools
+    kdePackages.konsole
     conky
     eww
     tradingview
