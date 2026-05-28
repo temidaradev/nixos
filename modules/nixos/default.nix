@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../shared/git.nix
+    ../home/git.nix
     ./boot
     ./desktop
     ./gaming

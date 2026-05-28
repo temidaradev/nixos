@@ -6,7 +6,7 @@ let
 in
 {
   imports = [
-    ../../darwin
+    ../../modules/darwin
   ];
 
   networking.hostName = "temidaradev-darwin";

@@ -6,7 +6,7 @@ in
 {
   imports = [
     ./hardware.nix
-    ../../nixos
+    ../../modules/nixos
   ];
 
   networking.hostName = "temidaradev";
