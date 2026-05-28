@@ -9,6 +9,8 @@ with pkgs; {
     git
     git-lfs
     gh
+    gnupg
+    pinentry_mac
     lazygit
     fzf
     zoxide
