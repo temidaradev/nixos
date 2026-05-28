@@ -6,8 +6,11 @@ in
 {
   imports = [
     ./hardware.nix
-    ./nixos
+    ../../nixos
   ];
+
+  networking.hostName = "temidaradev";
+  system.stateVersion = "26.05";
 
   environment.systemPackages = packages.system ++ [
     inputs.helium.packages.${system}.default

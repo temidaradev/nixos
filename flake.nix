@@ -1,8 +1,12 @@
 {
-  description = "NixOS Configurations";
+  description = "NixOS + Darwin Configurations";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     helium = {
       url = "github:AlvaroParker/helium-nix";
@@ -14,29 +18,41 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, zen-browser, helium, caelestia-shell, ... }:
+  outputs = inputs@{ self, nixpkgs, nix-darwin, zen-browser, helium, caelestia-shell, ... }:
     let
       lib = nixpkgs.lib;
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
+
+      mkPkgs = system: import nixpkgs {
         inherit system;
         config.allowUnfree = true;
-        overlays = [
-        ];
+        overlays = [ ];
       };
+
+      linuxSystem = "x86_64-linux";
+      darwinSystem = "aarch64-darwin";
     in {
-    nixosConfigurations = {
-      temidaradev = lib.nixosSystem {
+      nixosConfigurations.temidaradev = lib.nixosSystem {
         modules = [
-          ./machine.nix
+          ./hosts/nixos/machine.nix
           (nixpkgs + "/nixos/modules/misc/nixpkgs/read-only.nix")
-          { nixpkgs.pkgs = pkgs; }
+          { nixpkgs.pkgs = mkPkgs linuxSystem; }
         ];
         specialArgs = {
-          inherit helium system zen-browser;
+          system = linuxSystem;
+          inherit zen-browser;
           inputs = { inherit helium caelestia-shell; };
         };
       };
+
+      darwinConfigurations.temidaradev-darwin = nix-darwin.lib.darwinSystem {
+        modules = [
+          ./hosts/darwin/machine.nix
+          { nixpkgs.pkgs = mkPkgs darwinSystem; }
+        ];
+        specialArgs = {
+          system = darwinSystem;
+          inputs = { };
+        };
+      };
     };
-  };
 }

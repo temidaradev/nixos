@@ -22,6 +22,4 @@
     LC_TELEPHONE = "tr_TR.UTF-8";
     LC_TIME = "tr_TR.UTF-8";
   };
-
-  system.stateVersion = "25.05";
 }
