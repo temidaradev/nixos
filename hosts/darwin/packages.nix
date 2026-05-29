@@ -76,6 +76,7 @@ with pkgs; {
     nodejs_22
     pnpm
     yarn
+    rustup
     luajit
     lua
     lua-language-server
