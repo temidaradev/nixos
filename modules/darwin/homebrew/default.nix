@@ -66,6 +66,9 @@
       "putty"
       "qt"
       "winetricks"
+
+      "ffmpeg"
+      "streamrip"
     ];
 
     casks = [
