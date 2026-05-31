@@ -29,6 +29,7 @@ with pkgs; {
     jmtpfs
     doublecmd
     rar
+    scrcpy
 
     # iphone stuff
     libimobiledevice
